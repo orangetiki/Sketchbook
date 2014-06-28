@@ -1,0 +1,37 @@
+/* Turn signal Kit
+Objective = keep all lights on, blink only when separate circuit is complete
+*/
+
+int ledL = 13; /*left light circuit*/
+int ledP = 8;
+int ledR = 12; /*right light circuit*/
+int pushButtonL = 2;
+int pushButtonR = 4;
+
+
+void setup() {
+ pinMode(ledL, OUTPUT);
+ pinMode(ledR, OUTPUT); 
+ pinMode(ledP, OUTPUT);
+ pinMode(pushButtonL, INPUT);
+ pinMode(pushButtonR, INPUT); 
+}
+
+void loop() {
+  digitalWrite(ledL, HIGH);
+  digitalWrite(ledR, HIGH);
+  digitalWrite(ledP, HIGH);
+  
+  while (pushButtonL == HIGH) {
+    digitalWrite(ledL, HIGH);   // turn the LED on 
+  delay(1000);               // wait for a second
+  digitalWrite(ledL, LOW); 
+  }
+  
+    while (pushButtonR == HIGH) {
+    digitalWrite(ledR, HIGH);   // turn the LED on 
+  delay(1000);               // wait for a second
+  digitalWrite(ledR, LOW); 
+    }
+}
+    
